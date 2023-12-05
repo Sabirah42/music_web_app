@@ -20,9 +20,9 @@ album, title, release year
 
 ## 2. Infer the Table Name and Columns
 
-| Record                | Properties          |
-| --------------------- | ------------------- |
-| album                 | title, release year |
+| Record                | Properties                         |
+| --------------------- | ---------------------------------- |
+| album                 | id, title, release year, artist_id |
 
 Name of the table (always plural): `albums`
 
@@ -34,6 +34,7 @@ Column names: `title`, `release_year`
 id: SERIAL
 title: text
 release_year: int
+artist_id int
 ```
 
 ## 4. Write the SQL
@@ -42,7 +43,8 @@ release_year: int
 CREATE TABLE albums (
   id SERIAL PRIMARY KEY,
   title text,
-  release_year int
+  release_year int,
+  artist_id int
 );
 ```
 
