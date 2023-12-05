@@ -10,4 +10,3 @@ CREATE TABLE albums (
 );
 
 INSERT INTO albums (title, release_year, artist_id) VALUES ('Boxer', '2007', 1);
-INSERT INTO albums (title, release_year, artist_id) VALUES ('Brothers', '2010', 2);
