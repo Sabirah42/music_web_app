@@ -2,19 +2,6 @@ from lib.album import Album
 # from lib.album_repository import AlbumRepository
 
 # Tests for your routes go here
-
-# === Example Code Below ===
-
-"""
-GET /emoji
-"""
-def test_get_emoji(web_client):
-    response = web_client.get("/emoji")
-    assert response.status_code == 200
-    assert response.data.decode("utf-8") == ":)" 
-
-# === End Example Code ===
-
 """
 POST /albums
 Parameters:
@@ -35,10 +22,10 @@ def test_post_albums(db_connection, web_client):
 
     get_response = web_client.get("/albums")
     assert get_response.status_code == 200
-    assert get_response.data.decode('utf-8') == [
-    "Album(1, 'Boxer', 2007, 1)",
+    assert get_response.data.decode('utf-8') == "" \
+    "Album(1, 'Boxer', 2007, 1)\n" \
     "Album(2, 'Voyage', 2022, 2)"
-    ]
+    
 
 
 

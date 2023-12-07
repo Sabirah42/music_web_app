@@ -8,8 +8,8 @@ _Include the HTTP method, the path, and any query or body parameters._
 # Albums message route
 POST /albums
   title: string
-  release_year: int
-  artist_id: int
+  release_year: number (string on entry)
+  artist_id: number (string on entry)
 ```
 
 ## 2. Create Examples as Tests
@@ -21,6 +21,8 @@ _Remember to try out different parameter values._
 _Include the status code and the response body._
 
 ```python
+# SCENARIO 1
+
 # POST /albums
 #  Parameters:
 #    title: Voyage
@@ -34,8 +36,19 @@ None
 # GET /albums
 #  Expected response (200 OK):
 """
-Returns list of albums (Boxer, Voyage)
+Returns list of albums
+Album(1, Boxer, 2001, 1)
+Album(2, Voyage, 2022, 2)
 """
+
+# SCENARIO 2
+
+# POST /albums
+# Expected response (400 BAD REQUEST)
+"""
+You need to submit a title, release year and artist id
+"""
+
 ```
 
 ## 3. Test-drive the Route
