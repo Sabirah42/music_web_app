@@ -14,3 +14,11 @@ class AlbumRepository():
             albums.append(album)
 
         return albums
+    
+    def create(self, album):
+        self._connection.execute(
+            'INSERT INTO albums (title, release_year, artist_id) VALUES (%s, %s, %s)',
+            [album.title, album.release_year, album.artist_id]
+            )
+        return None
+

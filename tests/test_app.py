@@ -23,23 +23,21 @@ def test_post_albums(db_connection, web_client):
     get_response = web_client.get("/albums")
     assert get_response.status_code == 200
     assert get_response.data.decode('utf-8') == "" \
-    "Album(1, 'Boxer', 2007, 1)\n" \
-    "Album(2, 'Voyage', 2022, 2)"
+    "Album(1, Boxer, 2007, 1)\n" \
+    "Album(2, Voyage, 2022, 2)"
     
-
-
 
 """
 GET /albums
 Expected response (200 OK):
 Returns list of albums (Boxer, Brothers)
 """
-# def test_get_albums(web_client):
-#     response = web_client.get('/albums')
-#     assert response.status_code == 200
-#     assert response.data.decode('utf-8') == [
-#         Album(1,'Boxer', '2007', 1),
-#         Album(2, 'Voyage', '2022', 2)
-#         ]
+def test_get_albums(db_connection, web_client):
+    db_connection.seed("seeds/albums_table.sql")
+    response = web_client.get('/albums')
+
+    assert response.status_code == 200
+    assert response.data.decode('utf-8') == "" \
+        "Album(1, Boxer, 2007, 1)"
 
 
